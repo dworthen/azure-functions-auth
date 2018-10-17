@@ -20,7 +20,8 @@ var Home = {
   oninit: function(vnode) {
     m.request({
       method: "GET",
-      url: "https://dworthentestfunctionapp1.azurewebsites.net/api/users"
+      url: "https://dworthentestfunctionapp1.azurewebsites.net/api/users",
+      withCredentials: true
     })
       .then(function(results) {
         vnode.state.users = results;
