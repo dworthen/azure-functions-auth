@@ -30,6 +30,7 @@ var Home = {
       });
   },
   view: function(vnode) {
+    console.log(vnode.state.users);
     return m("main", [
       m("h1", "Azure Auth Funtions with mithril"),
       m(Users, { users: vnode.state.users })
