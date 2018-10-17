@@ -8,7 +8,7 @@ var Users = {
   view: function(vnode) {
     return m(
       "ul",
-      [].concat(vnode.attrs.users).map(function(user) {
+      vnode.attrs.users.map(function(user) {
         return m(User, { name: user.Name });
       })
     );
