@@ -21,9 +21,13 @@ var Home = {
     m.request({
       method: "GET",
       url: "https://dworthentestfunctionapp1.azurewebsites.net/api/users"
-    }).then(function(results) {
-      vnode.state.users = results;
-    });
+    })
+      .then(function(results) {
+        vnode.state.users = results;
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   },
   view: function(vnode) {
     return m("main", [
