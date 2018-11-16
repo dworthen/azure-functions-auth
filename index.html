@@ -5,13 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="google-signin-client_id" content="1060716423104-ovqrvba3gn93vuv17q8qg8pmbu2vfgor.apps.googleusercontent.com">
   <title>Document</title>
   <script src="https://unpkg.com/mithril/mithril.js"></script>
 </head>
 
 <body>
   <div id="app"></div>
+  <script>
+    var id_token = null;
+
+    function onSignIn(googleUser) {
+      id_token = googleUser.getAuthResponse().id_token;
+    }
+  </script>
   <script src="app.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 
 </html>

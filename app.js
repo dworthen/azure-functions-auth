@@ -15,13 +15,19 @@ var Users = {
   }
 };
 
+var Login = {
+  view: function(vnode) {
+    return m("div.g-signin2", { "data-onsuccess": "onSignIn" });
+  }
+};
+
 var Home = {
   users: [],
   oninit: function(vnode) {
     m.request({
       method: "GET",
       url: "https://dworthentestfunctionapp1.azurewebsites.net/api/users",
-      withCredentials: true
+      withCredentials: false
     })
       .then(function(results) {
         vnode.state.users = results;
@@ -34,6 +40,7 @@ var Home = {
     console.log(vnode.state.users);
     return m("main", [
       m("h1", "Azure Auth Funtions with mithril"),
+      m(Login),
       m(Users, { users: vnode.state.users })
     ]);
   }
